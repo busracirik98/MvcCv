@@ -1,0 +1,39 @@
+﻿@using BusranurCirikCv.Models.Entity
+@model List<TblAdmin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Kullanıcı İşlemleri</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>
+                @i.ID
+            </td>
+            <td>
+                @i.KullaniciAdi
+            </td>
+            <td>
+                @i.Sifre
+            </td>
+            <td>
+                <a href="/Admin/AdminSil/@i.ID" class="btn btn-dark">Sil</a>
+                <a href="/Admin/AdminGuncelle/@i.ID" class="btn btn-default">Düzenle</a>
+            </td>
+
+        </tr>
+    }
+</table>
+<a href="/Admin/AdminEkle/" class="btn btn-danger">Yeni Kullanıcı Ekle</a>
+

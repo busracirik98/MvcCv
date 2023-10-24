@@ -1,0 +1,17 @@
+﻿@model BusranurCirikCv.Models.Entity.TblYeteneklerim
+
+@{
+    ViewBag.Title = "YetenekGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <h4>Yetenek Düzenleme</h4>
+    @Html.Label("Yetenekler")
+    @Html.TextBoxFor(x => x.Yetenekler, new { @class = "form-control" })
+    @Html.Label("Oran")
+    @Html.TextBoxFor(x => x.Oran, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-dark">Güncelle</button>
+</form>
+

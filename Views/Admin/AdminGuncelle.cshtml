@@ -1,0 +1,18 @@
+﻿@model BusranurCirikCv.Models.Entity.TblAdmin
+
+@{
+    ViewBag.Title = "AdminGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <h4>Admin Düzenleme</h4>
+    @Html.Label("Kullanıcı Adı")
+    @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+    @Html.Label("Şifre")
+    @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-dark">Güncelle</button>
+
+</form>
+

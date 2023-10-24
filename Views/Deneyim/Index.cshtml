@@ -1,0 +1,45 @@
+﻿@using BusranurCirikCv.Models.Entity
+@model List<TblDeneyimlerim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Deneyimlerim</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Alt Başlık</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+           <td>
+               @i.ID 
+           </td>
+           <td>
+               @i.Baslik
+           </td>
+           <td>
+               @i.AltBaslik
+           </td>
+            <td>
+               @i.Tarih
+           </td> 
+            <td>
+                <a href="/Deneyim/DeneyimSil/@i.ID" class="btn btn-dark">Sil</a>  
+            </td> 
+            <td>
+                <a href="/Deneyim/DeneyimGetir/@i.ID" class="btn btn-default">Düzenle</a>
+            </td>
+           
+        </tr>
+    }
+</table>
+<a href="/Deneyim/DeneyimEkle/" class="btn btn-danger">Yeni Deneyim Ekle</a>
+

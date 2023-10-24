@@ -1,0 +1,59 @@
+﻿@using BusranurCirikCv.Models.Entity
+@model  List<TblSertifikalarim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sertifikalarım</h2>
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <div class="card-body">
+                                <!-- The timeline -->
+                                <div class="timeline timeline-inverse">
+                                    <!-- timeline time label -->
+                                    @foreach (var i in Model)
+                                    {
+                                        <div class="time-label">
+                                            <span class="bg-danger">
+                                                @i.Tarih
+                                            </span>
+                                        </div>
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->
+                                        <div>
+                                            <i class="fas fa-book bg-primary"></i>
+
+                                            <div class="timeline-item">
+                                                <span class="time"><i class="far fa-clock"></i> 12:05</span>
+                                                <div class="timeline-body">
+                                                    @i.Aciklama
+                                                </div>
+                                                <div class="timeline-footer">
+                                                    <a href="/Sertifika/SertifikaGetir/@i.ID" class="btn btn-primary btn-sm">Düzenle</a>
+                                                    <a href="/Sertifika/SertifikaSil/@i.ID" class="btn btn-danger btn-sm">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <a href="/Sertifika/SertifikaEkle/" class="btn btn-danger">Yeni Sertifika Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

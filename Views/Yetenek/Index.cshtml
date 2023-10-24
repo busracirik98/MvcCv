@@ -1,0 +1,79 @@
+﻿@using BusranurCirikCv.Models.Entity
+@model List<TblYeteneklerim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeteneklerim</h2>
+@{string renk = "";}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- /.card-header bordered-->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">ID</th>
+                                            <th>Yeteneğim</th>
+                                            <th>Derece</th>
+                                            <th style="width: 40px">Oran</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var i in Model)
+                                        {
+                                            if (i.Oran >= 0 && i.Oran <= 50)
+                                            {
+                                                renk = "progress-bar progress-bar-danger";
+                                            }
+                                            if (i.Oran >= 51 && i.Oran <= 70)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                            }
+                                            if (i.Oran >= 71 && i.Oran <= 84)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                            }
+                                            if (i.Oran >= 85 && i.Oran <= 100)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                            }
+                                            <tr>
+                                                <td>@i.ID</td>
+                                                <td>@i.Yetenekler</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@renk" style="width: @i.Oran%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@renk">%@i.Oran</span></td>
+                                                <td>
+                                                    <a class="btn btn-danger btn-sm" href="/Yetenek/YetenekSil/@i.ID"> <i class="fas fa-trash-alt"></i></a>
+                                                    <a class="btn btn-info btn-sm" href="/Yetenek/YetenekGuncelle/@i.ID"> <i class="fas fa-pencil-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <br />
+                                <a href="/Yetenek/YetenekEkle/" class="btn btn-danger">Yeni Yetenek Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+</body>
+</html>
+

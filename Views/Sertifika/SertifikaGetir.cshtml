@@ -1,0 +1,17 @@
+﻿@model BusranurCirikCv.Models.Entity.TblSertifikalarim
+
+@{
+    ViewBag.Title = "SertifikaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <h4>Deneyim Düzenleme</h4>
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-dark">Güncelle</button>
+
+</form>

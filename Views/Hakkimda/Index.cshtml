@@ -1,0 +1,30 @@
+﻿@using BusranurCirikCv.Models.Entity
+@model List<TblHakkimdaa>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hakkımda Düzenleme Sayfası</h2>
+<form method="post">
+    @foreach (var i in Model)
+    {
+        <label>Ad</label>
+        <input type="text" class="form-control" name="Ad" value="@i.Ad" />
+        <label>Soyad</label>
+        <input type="text" class="form-control" name="Soyad" value="@i.Soyad" />
+        <label>Adres</label>
+        <input type="text" class="form-control" name="Adres" value="@i.Adres" />
+        <label>Telefon</label>
+        <input type="text" class="form-control" name="Telefon" value="@i.Telefon" />
+        <label>Mail</label>
+        <input type="text" class="form-control" name="Mail" value="@i.Mail" />
+        <label>Resim</label>
+        <input type="text" class="form-control" name="Resim" value="@i.Resim" />
+        <label>Aciklama</label>
+        <textarea rows="5" class="form-control" name="Aciklama">@i.Aciklama</textarea>
+    }
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>

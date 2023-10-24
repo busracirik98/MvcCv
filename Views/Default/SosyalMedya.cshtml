@@ -1,0 +1,9 @@
+﻿@using BusranurCirikCv.Models.Entity
+@model List<TblSosyalMedya>
+
+@foreach (var i in Model)
+{
+<div class="btn-group">
+    <a class="social-icon" href="@i.Link" target="_blank"><i class="@i.İkon"></i></a>
+</div>
+}

@@ -1,0 +1,54 @@
+﻿@using BusranurCirikCv.Models.Entity
+@model List<TblEgitimlerim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Eğitimlerim</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Alt Başlık1</th>
+        <th>Alt Başlık2</th>
+        <th>GNO</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+<tr>
+    <td>
+        @i.ID
+    </td>
+    <td>
+        @i.Baslik
+    </td>
+    <td>
+        @i.AltBaslik1
+    </td>
+    <td>
+        @i.AltBaslik2
+    </td>
+    <td>
+        @i.GNO
+    </td>
+    <td>
+        @i.Tarih
+    </td>
+    <td>
+        <a href="/Egitim/EgitimSil/@i.ID" class="btn btn-dark">Sil</a>
+    </td>
+    <td>
+        <a href="/Egitim/EgitimGetir/@i.ID" class="btn btn-default">Düzenle</a>
+    </td>
+
+</tr>
+    }
+</table>
+<a href="/Egitim/EgitimEkle/" class="btn btn-danger">Yeni Eğitim Ekle</a>
+
+
